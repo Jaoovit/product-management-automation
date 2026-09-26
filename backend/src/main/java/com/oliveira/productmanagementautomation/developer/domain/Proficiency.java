@@ -16,4 +16,15 @@ public enum Proficiency {
     public boolean isAtLeast(Proficiency other) {
         return level >= other.level;
     }
+
+    public Proficiency nextLevel() {
+        return switch (this) {
+            case NEWBIE -> BEGINNER;
+            case BEGINNER -> INTERMEDIATE;
+            case INTERMEDIATE -> ADVANCED;
+            case ADVANCED -> EXPERT;
+            case EXPERT -> throw new IllegalStateException(
+                    "Expert proficiency is already the highest level");
+        };
+    }
 }

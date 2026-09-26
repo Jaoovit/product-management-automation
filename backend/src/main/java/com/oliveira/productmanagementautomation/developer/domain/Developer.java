@@ -55,24 +55,20 @@ public class Developer {
         skills.put(skillId, proficiency);
     }
 
-    public void updateSkillProficiency(SkillId skillId, Proficiency proficiency) {
+    public void improveSkillProficiency(SkillId skillId) {
         if (skillId == null) {
             throw new IllegalArgumentException("Skill ID cannot be null");
         }
-        if (proficiency == null) {
-            throw new IllegalArgumentException("Proficiency cannot be null");
-        }
-        if (!skills.containsKey(skillId)) {
+
+        Proficiency current = skills.get(skillId);
+        if (current == null) {
             throw new IllegalArgumentException("Skill not found for this developer");
         }
 
-        skills.put(skillId, proficiency);
+        skills.put(skillId, current.nextLevel());
     }
 
-    public void updateSeniority(Seniority seniority) {
-        if (seniority == null) {
-            throw new IllegalArgumentException("Seniority cannot be null");
-        }
-        this.seniority = seniority;
+    public void promote() {
+        seniority = seniority.nextLevel();
     }
 }
