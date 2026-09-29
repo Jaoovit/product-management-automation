@@ -71,4 +71,12 @@ public class Developer {
     public void promote() {
         seniority = seniority.nextLevel();
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }
