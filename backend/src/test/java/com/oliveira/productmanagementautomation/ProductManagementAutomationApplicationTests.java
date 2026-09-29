@@ -1,4 +1,4 @@
-package test.java.com.oliveira.product_management_automation;
+package com.oliveira.productmanagementautomation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
