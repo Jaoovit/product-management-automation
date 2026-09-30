@@ -79,4 +79,16 @@ public class Developer {
     public String getEmail() {
         return email;
     }
+
+    public Seniority getSeniority() {
+        return seniority;
+    }
+
+    public DeveloperId getDeveloperId() {
+        return developerId;
+    }
+
+    public Map<SkillId, Proficiency> getSkills() {
+        return Map.copyOf(skills);
+    }
 }

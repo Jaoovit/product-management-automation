@@ -1,11 +1,13 @@
 package com.oliveira.productmanagementautomation.developer.application;
 
 import com.oliveira.productmanagementautomation.developer.domain.Developer;
+import com.oliveira.productmanagementautomation.developer.domain.DeveloperId;
 import com.oliveira.productmanagementautomation.developer.domain.Seniority;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
@@ -46,6 +48,13 @@ class RegisterDeveloperTest {
         @Override
         public void save(Developer developer) {
             savedDevelopers.add(developer);
+        }
+
+        @Override
+        public Optional<Developer> findById(DeveloperId developerId) {
+            return savedDevelopers.stream()
+                    .filter(developer -> developer.getDeveloperId().equals(developerId))
+                    .findFirst();
         }
     }
 }
